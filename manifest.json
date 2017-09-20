@@ -9,5 +9,6 @@
     "js": ["lib/javascripts/jquery.min.js", "src/javascripts/background.js"],
     "css": ["src/stylesheets/style.css"]
   }],
-  "permissions": ["tabs", "<all_urls>"]
+  "permissions": ["tabs", "<all_urls>"],
+  "web_accessible_resources": ["assets/icons/*.png"]
 }

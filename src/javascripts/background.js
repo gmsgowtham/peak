@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
-  var div = $("<div class='peak-popup' id='peak'></div>").text('Popover dynamic');
+  var selectionText = '';
+  const twitterURL = chrome.runtime.getURL("assets/icons/twitter.png");
+  const div = $("<div class='peak-popup' id='peak'><img class='peak-social-img' src="+twitterURL+" alt='twitter'></img></div>");
 
   function initializeElement() {
     $('body').prepend(div);
@@ -12,12 +14,17 @@ $(document).ready(function(){
     toggleElement(e);
   });
 
+  $('.peak-social-img').click(function() {
+  })
+
   function toggleElement(e) {
-    var selectionText = getSelectionText();
-    if (selectionText.length >0 && selectionText.length <= 30) {
+    selectionText = getSelectionText().trim();
+    if (selectionText.length >10) {
+      const selection = window.getSelection();
+      const selectionBox = selection.getRangeAt(0).getBoundingClientRect();
       $(div).css({
-        top: e.pageY + 'px',
-        left: e.pageX + 'px'
+        top: selectionBox.top + window.pageYOffset - 50,
+        left: selectionBox.left + window.pageXOffset
       });
       $(div).addClass('peak-popup-show');
     } else {
