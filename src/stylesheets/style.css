@@ -7,7 +7,7 @@
   border-radius: 6px;
   padding: 4px;
   position: absolute;
-  z-index: 1000;
+  z-index: 999999999999;
   display: inline-block;
   height: auto;
 }
@@ -30,6 +30,13 @@
   border-color: #555 transparent transparent transparent;
 }
 
+.peak-popup > .peak-social-img {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  vertical-align: middle;
+  z-index: 100000000000;
+}
 
 @-webkit-keyframes fadeIn {
   from {opacity: 0;}
@@ -39,11 +46,4 @@
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
-}
-
-.peak-popup > .peak-social-img {
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  vertical-align: middle;
 }
